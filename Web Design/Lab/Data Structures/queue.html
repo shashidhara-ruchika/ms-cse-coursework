@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queue Operations</title>
+    <style>
+        /* Add your styles for queue items here if needed */
+        .queue-item {
+            border: 1px solid #ccc;
+            padding: 5px;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <label for="input">Enter Value:</label>
+        <input type="text" id="input">
+        <button id="enqueueButton">Enqueue</button>
+        <button id="dequeueButton">Dequeue</button>
+    </div>
+    <div>
+        <button id="isEmptyButton">Is Queue Empty?</button>
+        <button id="peekFrontButton">Peek at Front</button>
+    </div>
+    <div>
+        <!-- Queue items -->
+        <div class="queue-item"></div>
+        <div class="queue-item"></div>
+        <div class="queue-item"></div>
+        <div class="queue-item"></div>
+        <div class="queue-item"></div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const inputElement = document.getElementById("input");
+            const enqueueButton = document.getElementById("enqueueButton");
+            const dequeueButton = document.getElementById("dequeueButton");
+            const isEmptyButton = document.getElementById("isEmptyButton");
+            const peekFrontButton = document.getElementById("peekFrontButton");
+            const queueItems = document.querySelectorAll(".queue-item");
+            const queue = [];
+            const queueSize = 5;
+
+            // Function to update the display of queue items
+            function updateQueueDisplay() {
+                for (let i = 0; i < queueSize; i++) {
+                    if (i < queue.length) {
+                        queueItems[i].textContent = queue[i];
+                    } else {
+                        queueItems[i].textContent = "";
+                    }
+                }
+            }
+
+            // Function to enqueue a value into the queue
+            function enqueueValue() {
+                const inputValue = inputElement.value.trim();
+
+                if (inputValue !== "") {
+                    if (queue.length < queueSize) {
+                        queue.push(inputValue);
+                        updateQueueDisplay();
+                        inputElement.value = "";
+                    } else {
+                        inputElement.value = "";
+                        alert("Queue is already full!");
+                    }
+                } else {
+                    alert("Please enter a value!");
+                }
+            }
+
+            // Function to dequeue a value from the queue
+            function dequeueValue() {
+                if (queue.length > 0) {
+                    queue.shift();
+                    updateQueueDisplay();
+                } else {
+                    alert("Queue is already empty!");
+                }
+            }
+
+            function isQueueEmpty() {
+                if (queue.length > 0) {
+                    alert("No, Queue is not empty");
+                } else {
+                    alert("Yes, Queue is empty");
+                }
+            }
+
+            function peekAtFront() {
+                if (queue.length > 0) {
+                    alert("Front Value is: " + queue[0]);
+                } else {
+                    alert("Operation not allowed!");
+                }
+            }
+
+            enqueueButton.addEventListener("click", enqueueValue);
+            dequeueButton.addEventListener("click", dequeueValue);
+            isEmptyButton.addEventListener("click", isQueueEmpty);
+            peekFrontButton.addEventListener("click", peekAtFront);
+        });
+    </script>
+</body>
+
+</html>

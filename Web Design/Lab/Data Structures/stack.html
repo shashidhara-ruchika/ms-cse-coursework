@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stack Operations</title>
+    <style>
+        /* Add your styles for stack items here if needed */
+        .stack-item {
+            border: 1px solid #ccc;
+            padding: 5px;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <label for="input">Enter Value:</label>
+        <input type="text" id="input">
+        <button id="pushButton">Push</button>
+        <button id="popButton">Pop</button>
+    </div>
+    <div>
+        <button id="emptyButton">Is Stack Empty?</button>
+        <button id="peekButton">Peek at Top</button>
+    </div>
+    <div>
+        <!-- Stack items -->
+        <div class="stack-item"></div>
+        <div class="stack-item"></div>
+        <div class="stack-item"></div>
+        <div class="stack-item"></div>
+        <div class="stack-item"></div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const inputElement = document.getElementById("input");
+            const pushButton = document.getElementById("pushButton");
+            const popButton = document.getElementById("popButton");
+            const emptyButton = document.getElementById("emptyButton");
+            const peekButton = document.getElementById("peekButton");
+            const stackItems = document.querySelectorAll(".stack-item");
+            const stack = [];
+            const stackSize = 5;
+
+            // Function to update the display of stack items
+            function updateStackDisplay() {
+                for (let i = 0; i < stackSize; i++) {
+                    let n = 5 - i - 1;
+                    if (i < stack.length) {
+                        stackItems[n].textContent = stack[i];
+                    } else {
+                        stackItems[n].textContent = "";
+                    }
+                }
+            }
+
+            // Function to push a value onto the stack
+            function pushValue() {
+                const inputValue = inputElement.value.trim();
+
+                if (inputValue !== "") {
+                    if (stack.length < stackSize) {
+                        stack.push(inputValue);
+                        updateStackDisplay();
+                        inputElement.value = "";
+                    } else {
+                        inputElement.value = "";
+                        alert("Stack was already full!");
+                    }
+                } else {
+                    alert("Please enter a value!");
+                }
+            }
+
+            // Function to pop a value from the stack
+            function popValue() {
+                if (stack.length > 0) {
+                    stack.pop();
+                    updateStackDisplay();
+                } else {
+                    alert("Stack is already empty!");
+                }
+            }
+
+            function emptyStack() {
+                if (stack.length > 0) {
+                    alert("No, Stack is not empty");
+                } else {
+                    alert("Yes, Stack is empty");
+                }
+            }
+
+            function peekAtTop() {
+                if (stack.length > 0) {
+                    alert("Top Value is: " + stack[stack.length - 1]);
+                } else {
+                    alert("Operation not allowed!");
+                }
+            }
+
+            pushButton.addEventListener("click", pushValue);
+            popButton.addEventListener("click", popValue);
+            emptyButton.addEventListener("click", emptyStack);
+            peekButton.addEventListener("click", peekAtTop);
+        });
+    </script>
+</body>
+
+</html>
