@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "../../Lab_jQuery_raw"
+		},
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../Lab_jQuery"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Lab 5"
+	}
+}

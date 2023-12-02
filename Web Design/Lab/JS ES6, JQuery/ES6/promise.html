@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Promise</title>
+    <script src="http://code.jquery.com/jquery-3.3.1.slim.js" integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA="
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <script>
+        $(function () {
+            var saturday = false;
+
+            // Promise
+            var checkSaturday = new Promise(
+                function (resolve, reject) {
+                    if (saturday) {
+                        var message = "It is Saturday"
+                        resolve(message); // fulfilled
+                    } else {
+                        var reason = new Error('It is not Saturday');
+                        reject(reason); // reject
+                    }
+                }
+            );
+            
+            // Consume promise
+            var checkingForSat = function () {
+                checkSaturday
+                    .then(function (fulfilled) {
+                        // it is Sat
+                        console.log(fulfilled);
+                    })
+                    .catch(function (error) {
+                        // It is not sat
+                        console.log(error.message);
+                    });
+            };
+
+            checkingForSat();
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Demo</title>
+</head>
+<body>
+    <a href="http://jquery.com/">Sample Link</a>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script>
+ 
+    $( document ).ready(function() {
+        $( "a" ).click(function( event ) {
+            event.preventDefault();
+			alert( "The link will no longer take you to jquery.com" );
+            
+        });
+    });
+ 
+    </script>
+</body>
+</html>
