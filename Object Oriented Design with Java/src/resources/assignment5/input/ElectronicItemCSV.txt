@@ -1,0 +1,5 @@
+id,name,price,hasLithiumBattery
+17,Apple iPhone X,714.45,true
+21,Wireless Mouse,23.45,false
+19,LED Monitor,56.67,false
+9,Air Pods,118.23,false

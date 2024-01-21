@@ -1,0 +1,5 @@
+id,name,price,duration
+167,Wrap Gifts,2.45,6000
+213,Tailor Pant,17.89,18000
+145,Repair Filter,26.97,15000
+983,Assistance,1.23,3000
