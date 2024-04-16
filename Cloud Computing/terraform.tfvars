@@ -172,7 +172,7 @@ cloud_function = {
 
   service_config = {
     environment_variables = {
-      MAILGUN_API_KEY             = "e678c01f1037f90bed9db636be75beb2-f68a26c9-20deebb5"
+      MAILGUN_API_KEY             = "<mailgun-api.key>"
       MAILGUN_DOMAIN              = "ruchikashashidhara.me"
       MAILGUN_FROM                = "Ruchika Shashidhara <postmaster@ruchikashashidhara.me>"
       VERIFY_EMAIL_LINK           = "https://ruchikashashidhara.me/v1/user/verify"
