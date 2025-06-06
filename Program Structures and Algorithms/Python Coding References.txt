@@ -1,0 +1,104 @@
+Python Coding References
+
+
+# Basic List Comprehension
+
+a = [1, 2, 3]
+
+b = [e for e in a]						# b = [1, 2, 3]
+
+
+
+# List Comprehension with a condition
+
+a = [1, 2, 3]
+
+b = [e*2 for e in a]						# b = [2, 4, 6]
+
+
+
+# List Comprehension with multiple conditions
+
+a = [1, 2, 3, 4, 5]
+
+b = [e**2 for e in a if (e % 2 == 0) or (e == 1)] 		# b = [1, 4, 16]
+
+
+
+# List Comprehension with custom function
+
+def isOdd(n:'int') -> 'bool':
+	return n % 2 != 0
+
+a = [1, 2, 3, 4, 5]
+
+b = [e for e in a if isOdd(e) a]				# b = [1, 3, 5]
+
+
+
+# List Comprehension with Ternary Operator
+
+a = [1, 2, 3, 4]
+
+b = [('odd' if n % 2 else 'even') for e in a]			# b = ['odd', 'even', 'odd', 'even']
+
+
+
+# List Comprehension with Enumerate
+
+a = ['a', 'b', 'c']
+
+b = [[i, letter] for i, letter in enumerate(a)]			# b = [[0, 'a'], [1, 'b'], [2, 'c']]
+
+
+
+# List Comprehension with Zip
+
+letters = ['a', 'b', 'c']
+numbers = [4, 5, 6]
+chars = ['@', '*', '^']
+
+b = [(l, n, c) for l,n,c in zip(letters, numbers, chars)] 	# b = [('a', 4, '@'), ('b', 5, '*'), ('c', 5, '^')]
+
+
+
+# List Comprehension with Nested Loops, Cartesian Product
+
+letters = ['a', 'b', 'c']
+numbers = [4, 5]
+
+b = [l + str(n) for l in letters for n in numbers]		# b = ["a4", "a5", "b4", "b5", "c4", "c5"]
+
+b = [(l, n) for l in letters for n in numbers]			# b = [('a', 4), ('a', 5), ('b', 4), ('b', 5), ('c', 4), ('c', 5)]
+
+
+
+# List Comprehension with smaller list comprehensions
+
+a = [1, 2, 3]
+
+b = [[i + 1 for i in range(e)] for e in a]			# b = [[1], [1, 2], [1, 2, 3]]
+
+
+
+# Flatten a matrix
+
+matrix = [[1, 2], [5, 6], [8, 9]]
+
+b = [e for arow in matrix for e in arow]			# b = [1, 2, 5, 6, 8, 9]
+
+
+
+# Filter odd numbers from a nested list
+
+matrix = [[1, 2], [5, 6], [8, 9]]
+
+b = [e for arow in matrix for e in arow if (e % 3)]		# b = [1, 5, 9]
+
+
+
+
+
+
+
+
